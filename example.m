@@ -28,21 +28,3 @@ r = 20; % Reference
 st = 20; % Stop time of the simulation
 open_system('mpc_example'); % Open the simulation file
 sim('mpc_example',[0,st]); % Run the simulation
-%% Plot simulation results
-figure(1)
-subplot(2,1,1);
-stairs(u.Time,u.Data,'r','LineWidth',2); % Control input
-title('Control Input','FontName','Times New Roman');
-xlabel( 'Time [s]','FontName','Times New Roman');
-ylabel( '{\it u} [N]','FontName','Times New Roman');
-set(gca,'FontName','Times New Roman');
-subplot(2,1,2);
-plot(y.Time,r*ones(length(y.Time),1),'b--','LineWidth',2); % Reference
-hold on
-stairs(y.Time,y.Data,'r','LineWidth',2); % Output
-hold off
-legend( 'Reference', 'Output', 'Location','best');
-title('Output','FontName','Times New Roman');
-ylabel( '{\it y} [m]','FontName','Times New Roman');
-xlabel( 'Time [s]','FontName','Times New Roman');
-set(gca,'FontName','Times New Roman');
